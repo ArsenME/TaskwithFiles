@@ -1,0 +1,32 @@
+String[] sorted  = StudentService.sortedByAge(convert);
+        for(String s: sorted){
+            FileService.writeFile(URL,"Sort by Age: " + s);
+        }
+
+
+
+
+    public static String[] sortedByAge(Students[] students){
+        String[] sort = new String[students.length];
+
+
+        for(int i = 0; i < students.length; i++){
+            for(int j = 1; j < students.length; j++){
+                if(students[i].getYear() > students[j].getYear()){
+                    Students  tempStudent = students[i];
+                    students[i] = students[j];
+                    students[j] = tempStudent;
+
+                }
+            }
+
+        }
+
+        for(int i = 0; i < students.length ; i++){
+            sort[i] = students[i].getFirstName() +" "+ students[i].getLastName();
+
+
+
+        }
+        return sort;
+    }
